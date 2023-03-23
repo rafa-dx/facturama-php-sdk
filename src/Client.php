@@ -3,7 +3,7 @@
 /*
  * This file is part of Facturama PHP SDK.
  *
- * (c) Facturama <dev@facturama.com>
+ * (c) Facturama <soporte-api@facturama.mx>
  *
  * This source file is subject to a MIT license that is bundled
  * with this source code in the file LICENSE.
@@ -24,13 +24,13 @@ use GuzzleHttp\RequestOptions;
  */
 class Client
 {
-    const VERSION = '2.0.1';
+    const VERSION = '2.1.0';
     /*
     https://apisandbox.facturama.mx //Pruebas desarrollo
     https://api.facturama.mx  //Produccion
     */
     const API_URL = 'https://apisandbox.facturama.mx/';
-    const USER_AGENT = 'Facturama-PHP-SDK-v2.0.1';
+    const USER_AGENT = 'Facturama-PHP-SDK-v2.1.0';
 
     const FILE_TYPE_PDF = 'pdf';
     const FILE_TYPE_HTML = 'html';

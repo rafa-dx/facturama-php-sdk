@@ -13,10 +13,11 @@ require __DIR__.'/../../../vendor/autoload.php';
 
 $facturama = new Facturama\Client('pruebas', 'pruebas2011');
 
+$Id_BranchOffice='5JCn2yymUR7Srt-NRweRgQ2';
 $params = 
 [
-    
-    "Name"=> "El sauce",
+    "Id"=>$Id_BranchOffice,
+    "Name"=> "Sucursal de pruebas",
     "Description"=> "Sucursal del sauce, enfocada en la distribución de agua en garrafón",
     "Address"=> 
     [
@@ -32,5 +33,5 @@ $params =
     ]
     
 ];
-$result = $facturama->get('api/BranchOffice', $params);
+$result = $facturama->put('api/BranchOffice/'. $Id_BranchOffice, $params);
 printf('<pre>%s<pre>', var_export($result, true));

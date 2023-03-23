@@ -16,22 +16,27 @@ $facturama = new Facturama\Client('pruebas', 'pruebas2011');
 $productId = 'NIUOt3Pgd24ErcrM1OFyag2';
 
 $Product = [
-      'Id' => $productId,
-      'Taxes' => [
-        [
-      'Name' => 'IVA',
-      'Rate' => '0.16',
-      'IsRetention' => 'false',
-       ], ],
-
+  'Id' => $productId,
   'Unit' => 'Servicio',
   'UnitCode' => 'E48',
   'IdentificationNumber' => 'WEB003',
   'Name' => 'Sitio Web CMS',
   'Description' => 'Desarrollo e implementación de sitio web empleando un CMS',
+  'Category'=> 'GENERAL',
+  'Code'=> 'WEB003',
   'price' => '6500.00',
   'CodeProdServ' => '20102000',
+  'NameCodeProdServ'=> 'Software de desarrollo de plataformas web',
   'CuentaPredial' => '123',
+  'ObjetoImp'=>'01',
+  'Taxes' => [
+    [
+      'Name' => 'IVA',
+      'Rate' => '0.16',
+      'IsRetention' => 'false',
+      'IsFederalTax'=> 'true'
+    ], 
+  ],
 ];
 
 $result = $facturama->put('Product/'.$productId, $Product);
