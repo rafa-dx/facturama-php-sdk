@@ -12,10 +12,12 @@
 require __DIR__.'/../../../vendor/autoload.php';
 
 $facturama = new Facturama\Client('pruebas', 'pruebas2011');
-$params = [
-    'type' => 'issued',
-    'keyword' => 'Expresion en Software',
-    'status' => 'active',
+
+$params = 
+[
+    'Certificate'=> '',
+    'PrivateKey'=> '',
+    'PrivateKeyPassword'=>''
 ];
-$result = $facturama->get('/Cfdi', $params);
+$result = $facturama->put('TaxEntity/UploadFiel', $params);
 printf('<pre>%s<pre>', var_export($result, true));

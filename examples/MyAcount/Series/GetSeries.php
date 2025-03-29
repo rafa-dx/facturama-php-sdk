@@ -13,12 +13,9 @@ require __DIR__.'/../../../vendor/autoload.php';
 
 $facturama = new Facturama\Client('pruebas', 'pruebas2011');
 
-$CfdiId = 'sniJoQdMCaa1c3M_7TLjIQ2';
-
-$params = [
-    'type' => 'issued',
+$Id_BranchOffice='GHtxdqCdMm2qTLXvo8Eqgg2';
+$params = 
+[
 ];
-
-$result = $facturama->get('Cfdi/'.$CfdiId, $params);
-
+$result = $facturama->get('api/serie/' . $Id_BranchOffice, $params);
 printf('<pre>%s<pre>', var_export($result, true));

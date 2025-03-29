@@ -13,14 +13,13 @@ require __DIR__.'/../../../vendor/autoload.php';
 
 $facturama = new Facturama\Client('pruebas', 'pruebas2011');
 
-$CfdiId = 'sniJoQdMCaa1c3M_7TLjIQ2';
-
-$params = [
-    'type' => 'issued',
-    'motive'=>'01',
-    'uuidReplacement'=>'null'
+$params = 
+[
+    'Rfc'=>'EKU9003173C9',
+    'Name'=>'ESCUELA KEMPER URGATE',
+    'ZipCode'=>'26015',
+    'FiscalRegime'=>'601'
 ];
-
-$result = $facturama->delete('Cfdi/'.$CfdiId, $params);
+$result = $facturama->post('customers/validate', $params);
 
 printf('<pre>%s<pre>', var_export($result, true));

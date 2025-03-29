@@ -12,13 +12,11 @@
 require __DIR__.'/../../../vendor/autoload.php';
 
 $facturama = new Facturama\Client('pruebas', 'pruebas2011');
-$body = [];
-$params = [
-'cfdiType' => 'issued',
-'cfdiId' => '7eo51BvzV-E16gBx3nnxfQ2',
-'email' => 'ejemplo@ejemplo.com',
+
+$params = 
+[
+    "Image"=> "https://facturama.mx/img/facturama_logo.png",
+    "Type"=> "png"   
 ];
-
-$result = $facturama->post('Cfdi', $body, $params);
-
+$result = $facturama->put('TaxEntity/UploadLogo', $params);
 printf('<pre>%s<pre>', var_export($result, true));
