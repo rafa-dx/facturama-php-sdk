@@ -9,6 +9,7 @@
  * with this source code in the file LICENSE.
  */
 
+
 require __DIR__.'/../../../vendor/autoload.php';
 require_once '../../credentials.php';
 
@@ -19,15 +20,13 @@ $facturama->setApiUrl('https://apisandbox.facturama.mx/');
 
 $params =
     [
-        'Rfc' => 'EKU9003173C9',
-        'Name' => 'ESCUELA KEMPER URGATE',
-        'ZipCode' => '26015', // Return true
-        //'ZipCode' => '42501', // Return false
-        'FiscalRegime' => '601'
+        'search' => '',
+        'start' => '0',
+        'length' => '100'
     ];
 
 try {
-    $result = $facturama->post('customers/validate', $params);
+    $result = $facturama->get('Clients', $params);
     printf('<pre>%s<pre>', var_export($result, true));
 } catch (\Facturama\Exception\RequestException $e) {
     // Manejo de errores específicos de la API

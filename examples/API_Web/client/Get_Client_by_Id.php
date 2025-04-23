@@ -9,6 +9,7 @@
  * with this source code in the file LICENSE.
  */
 
+
 require __DIR__.'/../../../vendor/autoload.php';
 require_once '../../credentials.php';
 
@@ -17,17 +18,10 @@ use Facturama\Client;
 $facturama = new Client(USER, PASSWORD);
 $facturama->setApiUrl('https://apisandbox.facturama.mx/');
 
-$params =
-    [
-        'Rfc' => 'EKU9003173C9',
-        'Name' => 'ESCUELA KEMPER URGATE',
-        'ZipCode' => '26015', // Return true
-        //'ZipCode' => '42501', // Return false
-        'FiscalRegime' => '601'
-    ];
+$Id_client = 'k76cVK5NzddmRP7ZBsUKDg2'; // ID del cliente que deseas obtener
 
 try {
-    $result = $facturama->post('customers/validate', $params);
+    $result = $facturama->get('Client/'.$Id_client);
     printf('<pre>%s<pre>', var_export($result, true));
 } catch (\Facturama\Exception\RequestException $e) {
     // Manejo de errores específicos de la API

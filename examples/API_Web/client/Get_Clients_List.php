@@ -17,25 +17,16 @@ use Facturama\Client;
 $facturama = new Client(USER, PASSWORD);
 $facturama->setApiUrl('https://apisandbox.facturama.mx/');
 
-$params =
-    [
-        'Rfc' => 'EKU9003173C9',
-        'Name' => 'ESCUELA KEMPER URGATE',
-        'ZipCode' => '26015', // Return true
-        //'ZipCode' => '42501', // Return false
-        'FiscalRegime' => '601'
-    ];
-
 try {
-    $result = $facturama->post('customers/validate', $params);
+    $result = $facturama->get('Client');
     printf('<pre>%s<pre>', var_export($result, true));
 } catch (\Facturama\Exception\RequestException $e) {
     // Manejo de errores específicos de la API
-    printf('%s', $e->getMessage());
+    printf('Error en la solicitud: %s', $e->getMessage());
 } catch (\Facturama\Exception\ResponseException $e) {
     // Manejo de errores en la respuesta de la API
-    printf('%s', $e->getMessage());
+    printf('Error en la respuesta: %s', $e->getMessage());
 } catch (\Exception $e) {
     // Manejo de cualquier otro error
-    printf('%s', $e->getMessage());
+    printf('Ocurrió un error inesperado: %s', $e->getMessage());
 }
